@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: black;
+  background-image: url('assets/n1.jpg');
+  background-size: 300px;
+  position: relative;
+  width: 100%;
+}
+
+.container-dinousario {
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(.7);
+  --wh: calc(var(--wh-number) * 1px);
+  --wh-n: calc(var(--wh-number) * -1px);
+  width: calc(var(--wh-number) * var(--wh));
+  height: calc(var(--wh-number) * var(--wh));
+  --color: #fff;
+  --blur: 0;
+  filter: drop-shadow(var(--wh-n) 0 var(--blur) var(--color)) drop-shadow(0 var(--wh-n) var(--blur) var(--color)) drop-shadow(var(--wh) 0 var(--blur) var(--color)) drop-shadow(0 var(--wh) var(--blur) var(--color));
+  image-rendering: pixelated;
+
+  @media (width <= 1100px) {
+    & {
+      transform: translate(-50%, -50%) scale(.3);
+    }
+  }
+
+  .pixel {
+    width: var(--wh);
+    height: var(--wh);
+    box-shadow: var(--shadow);
+  }
+}
